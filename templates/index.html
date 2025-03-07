@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            margin: 2rem auto; /* Center the container horizontally */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .prediction {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .prediction h2 {
+            margin: 0;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Age Predictor</h1>
+        <form method="POST">
+            <!-- Gender -->
+            <label for="gender">Gender (0 for Female, 1 for Male):</label>
+            <input type="number" id="gender" name="gender" required>
+
+            <!-- Blood Pressure -->
+            <label for="blood_pressure">Blood Pressure (s/d):</label>
+            <input type="number" step="any" id="blood_pressure" name="blood_pressure" required>
+
+            <!-- Smoking Status -->
+            <label for="smoking_status">Smoking Status (0 for Non-Smoker, 1 for Smoker):</label>
+            <input type="number" id="smoking_status" name="smoking_status" required>
+
+            <!-- Weight -->
+            <label for="weight">Weight (kg):</label>
+            <input type="number" step="any" id="weight" name="weight" required>
+
+            <!-- Height -->
+            <label for="height">Height (cm):</label>
+            <input type="number" step="any" id="height" name="height" required>
+
+            <!-- BMI -->
+            <label for="bmi">BMI:</label>
+            <input type="number" step="any" id="bmi" name="bmi" required>
+
+            <!-- Cholesterol Level -->
+            <label for="cholesterol">Cholesterol Level (mg/dL):</label>
+            <input type="number" step="any" id="cholesterol" name="cholesterol" required>
+
+            <!-- Diet -->
+            <label for="diet">Diet (0 for Unhealthy, 1 for Healthy):</label>
+            <input type="number" id="diet" name="diet" required>
+
+            <!-- Physical Activity Level -->
+            <label for="physical_activity">Physical Activity Level (0 for Low, 1 for High):</label>
+            <input type="number" id="physical_activity" name="physical_activity" required>
+
+            <!-- Education Level -->
+            <label for="education">Education Level (0 for Low, 1 for High):</label>
+            <input type="number" id="education" name="education" required>
+
+            <!-- Blood Glucose Level -->
+            <label for="blood_glucose">Blood Glucose Level (mg/dL):</label>
+            <input type="number" step="any" id="blood_glucose" name="blood_glucose" required>
+
+            <!-- Cognitive Function -->
+            <label for="cognitive_function">Cognitive Function (0 for Poor, 1 for Good):</label>
+            <input type="number" id="cognitive_function" name="cognitive_function" required>
+
+            <!-- Pollution Exposure -->
+            <label for="pollution_exposure">Pollution Exposure (0 for Low, 1 for High):</label>
+            <input type="number" id="pollution_exposure" name="pollution_exposure" required>
+
+            <!-- Medication Use -->
+            <label for="medication_use">Medication Use (0 for No, 1 for Yes):</label>
+            <input type="number" id="medication_use" name="medication_use" required>
+
+            <!-- Stress Levels -->
+            <label for="stress_levels">Stress Levels (0 for Low, 1 for High):</label>
+            <input type="number" id="stress_levels" name="stress_levels" required>
+
+            <!-- Family History -->
+            <label for="family_history">Family History (0 for No, 1 for Yes):</label>
+            <input type="number" id="family_history" name="family_history" required>
+
+            <!-- Bone Density -->
+            <label for="bone_density">Bone Density (g/cm²):</label>
+            <input type="number" step="any" id="bone_density" name="bone_density" required>
+
+            <!-- Vision Sharpness -->
+            <label for="vision_sharpness">Vision Sharpness (0 for Poor, 1 for Good):</label>
+            <input type="number" id="vision_sharpness" name="vision_sharpness" required>
+
+            <!-- Chronic Diseases -->
+            <label for="chronic_diseases">Chronic Diseases (0 for No, 1 for Yes):</label>
+            <input type="number" id="chronic_diseases" name="chronic_diseases" required>
+
+            <!-- Sleep Patterns -->
+            <label for="sleep_patterns">Sleep Patterns (0 for Poor, 1 for Good):</label>
+            <input type="number" id="sleep_patterns" name="sleep_patterns" required>
+
+            <!-- Alcohol Consumption -->
+            <label for="alcohol_consumption">Alcohol Consumption (0 for No, 1 for Yes):</label>
+            <input type="number" id="alcohol_consumption" name="alcohol_consumption" required>
+
+            <!-- Mental Health Status -->
+            <label for="mental_health">Mental Health Status (0 for Poor, 1 for Good):</label>
+            <input type="number" id="mental_health" name="mental_health" required>
+
+            <!-- Hearing Ability -->
+            <label for="hearing_ability">Hearing Ability (dB):</label>
+            <input type="number" step="any" id="hearing_ability" name="hearing_ability" required>
+
+            <!-- Sun Exposure -->
+            <label for="sun_exposure">Sun Exposure (0 for Low, 1 for High):</label>
+            <input type="number" id="sun_exposure" name="sun_exposure" required>
+
+            <!-- Income Level -->
+            <label for="income_level">Income Level (0 for Low, 1 for High):</label>
+            <input type="number" id="income_level" name="income_level" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Predict Age</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction">
+            <h2>Predicted Age: {{ prediction }} years</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
